@@ -128,6 +128,10 @@ function M.open_on_directory()
     return
   end
 
+  if (bufname:find("^fugitive://")) then
+    -- print("skipping fugitive dir " .. bufname)
+    return
+  end
   change_dir.force_dirchange(bufname, true)
 end
 
